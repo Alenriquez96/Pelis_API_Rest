@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Ignora la carpeta node_modules
+node_modules
+
+# Ignora package-lock.json
+package-lock.json

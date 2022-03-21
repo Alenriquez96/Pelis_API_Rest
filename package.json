@@ -1,0 +1,25 @@
+{
+  "name": "pelis_api_rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alenriquez96/Pelis_API_Rest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alenriquez96/Pelis_API_Rest/issues"
+  },
+  "homepage": "https://github.com/Alenriquez96/Pelis_API_Rest#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2"
+  }
+}
