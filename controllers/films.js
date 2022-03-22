@@ -1,24 +1,21 @@
-const films= require('../utils/films.js')
 
-const getProduct = async (req, res) => {
+const allFilms = require("../utils/films.js");
 
-    if (req.params.id) {
-        const product = await products.getProductById(req.params.id); // Devuelve 1
-        res.render('products', { "products": product }); // Pinta datos en el pug
-    } else {
-        const allProducts = await products.getAllProducts();
-        res.render('products', {"products":allProducts }); // Pinta datos en el pug
-    }
+
+
+const getFilmByTitle = async (req,res) => {
+    if(req.params.title){
+        const film = await allFilms.getFilmByTitle(req.params.title);//Devuelve 1
+        res.status(200).json(film);//Pinta datos en el pug. Aquí hemos metido data en un objeto para  que con la plantilla del pug lo coja.
+      }
+    //   else{
+    //     const allFilms = await allFilms.getAllFilms();
+    //     res.status(200).render("films.pug",{"film": film});//Pinta datos en el pug
+    //   }
 }
-// const createProduct = async (req, res) => {
-//     console.log(req.body)//objeto de un nuevo producto
-//     const newProduct = req.body;//{} nuevo producto a guardar
-//     const answer = await products.createProduct(newProduct)
-//     res.send(`Producto ${answer.title} en el sistema, con Id : ${answer.id}`)
-// }
 
-const product = {
-    getProduct,
-    //createProduct
+
+const filmByTitle = {
+    getFilmByTitle
 }
-module.exports = product;
+module.exports = filmByTitle;
