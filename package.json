@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/Alenriquez96/Pelis_API_Rest#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
+    "env": "^0.0.2",
     "express": "^4.17.3",
+    "fetch": "^1.1.0",
+    "node-fetch": "^3.2.3",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2"
   }
