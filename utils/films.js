@@ -14,20 +14,29 @@ const getFilmByTitle = async (title) => {
         return [];
       }
 }
-// const getAllFilms = async () => {
-//     try{
-//         let response = await fetch(`https://www.omdbapi.com/?t=${}&apikey=${apikey}`);//[]
-//         let film = await response.json();//{}
-//         return film;//Pinta datos en el pug
-//       }catch(error){
-//         console.log(`ERROR: ${error.stack}`);
-//         return [];
-//       }
-// }
+
+const createFilm = async (film) => {
+    try{
+        let response = await fetch(`https://www.omdbapi.com/?t=${film}&apikey=${apikey}`,{
+                method:"POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(film)
+            })
+        let answer = await response.json(); // objeto de vuelta de la petición
+        console.log(answer);
+        }
+        catch (error){
+            console.log(`ERROR: ${error.stack}`);
+            return [];
+        }
+}
 
 const allFilms = {
-    getFilmByTitle
-    // getAllFilms
+    getFilmByTitle,
+    createFilm
 }
 module.exports = allFilms;
 

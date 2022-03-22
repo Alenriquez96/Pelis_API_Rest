@@ -7,14 +7,21 @@ const getFilmByTitle = async (req,res) => {
         const film = await allFilms.getFilmByTitle(req.params.title);//Devuelve 1
         res.status(200).json(film);//Pinta datos en el pug. Aquí hemos metido data en un objeto para  que con la plantilla del pug lo coja.
       }
-    //   else{
-    //     const allFilms = await allFilms.getAllFilms();
-    //     res.status(200).render("films.pug",{"film": film});//Pinta datos en el pug
-    //   }
 }
 
 
-const filmByTitle = {
-    getFilmByTitle
+const createFilm = async (req,res) => {
+    console.log(req.body); // Objeto recibido de producto nuevo
+    const newFilm = req.body;// json con el nuevo producto a guardar
+    const answer = await allFilms.createFilm(newFilm);
+
+    res.status(200).send(`Película  guardado en el sistema`);
+
 }
-module.exports = filmByTitle;
+
+
+const Films = {
+    getFilmByTitle,
+    createFilm
+}
+module.exports = Films

@@ -3,7 +3,7 @@ const express = require('express');
 const app = express()
 const port = 3000
 
-const getFilmByTitle = require('./routes/films');
+const filmsRouter = require('./routes/films');
 
 
 
@@ -12,7 +12,7 @@ app.set('views','./views');
 
 
 
-app.use("/api",getFilmByTitle);
+app.use("/api",filmsRouter);
 
 // app.get('/api/film/:title?',async (req,res)=>{
 //     try{
