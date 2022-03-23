@@ -17,7 +17,7 @@ const getFilmByTitle = async (title) => {
 
 const createFilm = async (film) => {
     try{
-        let response = await fetch(`https://www.omdbapi.com/?t=${film}&apikey=${apikey}`,{
+        let response = await fetch(`https://www.omdbapi.com/?t=${film.title}&apikey=${apikey}`,{
                 method:"POST",
                 headers: {
                     'Accept': 'application/json',
@@ -27,16 +27,37 @@ const createFilm = async (film) => {
             })
         let answer = await response.json(); // objeto de vuelta de la petición
         console.log(answer);
+        return answer
         }
         catch (error){
             console.log(`ERROR: ${error.stack}`);
-            return [];
+            return {};
         }
+}
+
+const updateFilm = async (title) => {
+    try{
+        let response = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=${apikey}`,{
+        method:"PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(title)
+        })
+    //{}
+        let film = await response.json();//{}
+        return [film];//Pinta datos en el pug. Aquí hemos metido data en un objeto para  que con la plantilla del pug lo coja.
+      }catch(error){
+        console.log(`ERROR: ${error.stack}`);
+        return [];
+      }
 }
 
 const allFilms = {
     getFilmByTitle,
-    createFilm
+    createFilm,
+    updateFilm
 }
 module.exports = allFilms;
 
